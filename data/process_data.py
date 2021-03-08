@@ -60,6 +60,14 @@ def save_data(df, database_filename):
 
 
 def main():
+  """
+  arg: message.csv, category.csv, database filepath
+  Three steps in the main()
+  1.   load data by laod_data()
+  2.   clean data
+  3.   save dataframe to a database
+  :return: a dataframe store in database
+  """
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
