@@ -56,9 +56,6 @@ def load_data(database_filepath):
   # drop unnecessary variables
   df = df.drop(['id', 'original'], axis=1)
 
-  # make relate a binary variable
-  df['related'] = df['related'].map(lambda x: 1 if x == 2 else x)
-
   # create labels
   y = df.drop(['message', 'genre'], axis=1)
   # store features (text)
