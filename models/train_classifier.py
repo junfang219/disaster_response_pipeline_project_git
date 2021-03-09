@@ -50,7 +50,7 @@ def load_data(database_filepath):
     :return: X the text message, y the corresponding labels, category_name records all label names
   """
   engine = create_engine('sqlite:///' + database_filepath)
-  table_name = os.path.basename(database_filepath).replace(".db", "") + "table"
+  table_name = os.path.basename(database_filepath).replace(".db", "") + "_table"
   df = pd.read_sql_table(table_name, engine)
 
   # drop unnecessary variables
@@ -110,12 +110,12 @@ def build_model():
     ('clf', MultiOutputClassifier(AdaBoostClassifier()))
   ])
 
-  # parameters = {
-  #   'clf__estimator__learning_rate': [0.01, 0.02, 0.05],
-  #   'clf__estimator__n_estimators': [10, 20, 40]
-  # }
+  parameters = {
+    'clf__estimator__learning_rate': [0.01, 0.02, 0.05],
+    'clf__estimator__n_estimators': [10, 20, 40]
+  }
 
-  # cv = GridSearchCV(pipeline, param_grid=parameters)
+  cv = GridSearchCV(pipeline, param_grid=parameters)
 
   return pipeline
 
@@ -163,7 +163,7 @@ def main():
     print('Please provide the filepath of the disaster messages database ' \
           'as the first argument and the filepath of the pickle file to ' \
           'save the model to as the second argument. \n\nExample: python ' \
-          'train_classifier.py ../data/DisasterResponse.db classifier.pkl')
+          'train_classifier.py ../data/disaster_response.db classifier.pkl')
 
 
 if __name__ == '__main__':
