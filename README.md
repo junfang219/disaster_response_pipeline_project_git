@@ -8,8 +8,9 @@
 2. Getting started
    1. Dependencies
    2. Instructions
-3. Authors
-4. Acknowledgements
+3. Deployment
+4. Authors
+5. Acknowledgements
 
 ---------------------------------------------------------
 
@@ -50,6 +51,12 @@ ___________________
    `python run.py`
 
 4. Go to http://0.0.0.0:3001/
+
+<h3>Deployment</h3>
+
+This app is also using Heroku, below is the URL:
+
+https://message-classification.herokuapp.com/
 
 ----------------------------------------------------
 
